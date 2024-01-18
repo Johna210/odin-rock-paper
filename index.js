@@ -68,7 +68,6 @@ function game() {
         }else {
             draw++
         }
-
         
     }
 
