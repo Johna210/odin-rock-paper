@@ -69,18 +69,13 @@ body {
     gap: 50px;
 }
 
-#rock {
+.icon {
     font-size: 100px;
     color: #e20b0b;
     cursor: pointer;
 }
-#paper {
-    font-size: 100px;
-    color: #e20b0b;
-    cursor: pointer;
-}
-#scissor {
-    font-size: 100px;
-    color: #e20b0b;
-    cursor: pointer;
+
+#message-box {
+    color: #e8f9fd;
+    text-align: center;
 }

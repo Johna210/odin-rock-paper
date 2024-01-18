@@ -23,8 +23,8 @@
         <main id="main">
             <header id="page-title">Play Rock Paper Scissor</header>
             <div class="score">
-                <div id="player-score">Your Score:</div>
-                <div id="computer-score">Computer Score:</div>
+                <div>Your Score: <span id="player-score">0</span></div>
+                <div>Computer Score: <span id="computer-score">0</span></div>
             </div>
 
             <div class="game">
@@ -34,15 +34,18 @@
                     </div>
                     <div class="icons">
                         <div class="choice">
-                            <i class="fa-solid fa-hand-back-fist" id="rock"></i>
+                            <i
+                                class="fa-solid fa-hand-back-fist icon"
+                                id="rock"
+                            ></i>
                         </div>
                         <div class="choice">
-                            <i class="fa-solid fa-hand" id="paper"></i>
+                            <i class="fa-solid fa-hand icon" id="paper"></i>
                         </div>
                         <div class="choice">
                             <i
-                                class="fa-solid fa-hand-scissors"
-                                id="scissor"
+                                class="fa-solid fa-hand-scissors icon"
+                                id="scissors"
                             ></i>
                         </div>
                     </div>
@@ -52,6 +55,9 @@
                     <div class="cpu-choice"></div>
                 </div>
             </div>
+            <div id="message-box"></div>
         </main>
+
+        <script type="module" src="./main.js"></script>
     </body>
 </html>
