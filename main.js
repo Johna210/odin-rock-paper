@@ -5,6 +5,9 @@ const cpuDiv = document.querySelector(".cpu-choice");
 const messageBox = document.getElementById("message-box");
 const playerScore = document.getElementById("player-score");
 const cpuScore = document.getElementById("computer-score");
+const modal = document.getElementById("myModal");
+const span = document.getElementsByClassName("close")[0];
+const result = document.getElementById("result");
 
 function createIcon(classes) {
     const icon = document.createElement("i");
@@ -46,22 +49,54 @@ function scoreBoard(value) {
     }
 }
 
+function displayResult(res) {
+    console.log(res);
+    if (res) {
+        modal.style.display = "block";
+        result.textContent = "You Won This Game!";
+    } else {
+        modal.style.display = "block";
+        result.textContent = "You Lost ";
+    }
+}
+
+function checkWinner() {
+    const player = parseInt(playerScore.textContent);
+    const cpu = parseInt(cpuScore.textContent);
+
+    if (player >= 5 || cpu >= 5) {
+        if (player > cpu) {
+            displayResult(true);
+        } else {
+            displayResult(false);
+        }
+    }
+}
+
 icons.addEventListener("click", (e) => {
     const choice = e.target.id;
-
     const cpuChoice = getComputerChoice();
 
+    // Generate the icon for cpu choice
     const classes = generateIconClasses(cpuChoice);
     const icon = createIcon(classes);
+
+    // Clear the div
     while (cpuDiv.firstChild) {
         cpuDiv.removeChild(cpuDiv.firstChild);
     }
     cpuDiv.appendChild(icon);
 
+    // Simulate Game
     const values = playGame(choice, cpuChoice);
-    console.log(values);
-    console.log(choice, cpuChoice);
 
     displayMessage(values[0]);
     scoreBoard(values[1]);
+
+    checkWinner();
 });
+
+span.onclick = function () {
+    modal.style.display = "none";
+    window.location.reload();
+};
